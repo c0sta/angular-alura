@@ -8,17 +8,14 @@
     "compile": "tsc",
     "watch": "tsc -w",
     "server": "lite-server --baseDir=app",
-    "start": "concurrently \"npm run watch\" \"npm run server\" "
+    "start": "concurrently \"npm run watch\" \"npm run server\""
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^5.2.0",
-    "lite-server": "^2.5.4",
-    "typescript": "^3.9.2"
-  },
-  "dependencies": {
-    "@types/jquery": "^3.3.38"
+    "@types/jquery": "^2.0.42",
+    "concurrently": "^3.4.0",
+    "lite-server": "^2.3.0",
+    "typescript": "^2.3.2"
   }
 }

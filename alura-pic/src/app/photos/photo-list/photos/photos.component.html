@@ -1,0 +1,20 @@
+<p class="text-center text-muted" *ngIf="!photos.length">Sorry, no photos</p>
+
+<ol class="list-unstyled">
+  <li *ngFor="let cols of rows" class="row">
+    <div *ngFor="let photo of cols" class="col-4" appDarkenOnHover>
+      <app-card [title]="photo.description" class="m-2">
+        <ap-photo
+          [url]="photo.url"
+          [description]="photo.description"
+        ></ap-photo>
+        <div class="text-center p-2">
+          <i class="fa fa-heart-o fa-1x mr-2">
+            {{ photo.likes }}
+          </i>
+          <i class="fa fa-comment-o fa-1x mr-2"> &nbsp;{{ photo.comments }}</i>
+        </div>
+      </app-card>
+    </div>
+  </li>
+</ol>

@@ -4,29 +4,19 @@ import { PhotoListComponent } from './photos/photo-list/photo-list.component';
 import { PhotoFormComponent } from './photos/photo-form/photo-form.component';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { PhotoListResolver } from './photos/photo-list/photo-list.resolver';
-import { SigninComponent } from './home/signin/signin.component';
-import { SignupComponent } from './home/signup/signup.component';
-import { AuthGuard } from './core/auth/auth.guard';
-import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   // Mudar para SignupComponent dps
   {
     path: '',
-    component: HomeComponent,
-    canActivate: [AuthGuard],
-    children: [
-      {
-        path: '',
-        component: SigninComponent,
-      },
-      {
-        path: 'signup',
-        component: SignupComponent,
-      },
-    ],
+    pathMatch: 'full', // se n colocamos, qualquer rota com / será considerado. Mema coisa do exact do react
+    redirectTo: 'home',
   },
-
+  {
+    path: 'home',
+    loadChildren: () =>
+      import('./home/home.module').then((module) => module.HomeModule),
+  },
   {
     path: 'user/:username',
     component: PhotoListComponent,

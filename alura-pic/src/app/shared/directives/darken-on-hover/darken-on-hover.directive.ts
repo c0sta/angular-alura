@@ -11,6 +11,7 @@ import {
 })
 export class DarkenOnHoverDirective {
   @Input() brightness: string = '70%';
+  // Renderer também lida com a renderização de elementos da DOM do lado do servidor(server-side)
   constructor(private el: ElementRef, private render: Renderer2) {}
 
   @HostListener('mouseover') // faz com que os métodos abaixo sejam executados de acordo com o evento passado na diretiva @HostListener

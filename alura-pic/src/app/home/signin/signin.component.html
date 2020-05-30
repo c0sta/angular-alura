@@ -1,0 +1,50 @@
+<app-card title="Login" class>
+  <h4 class="text-center">Login</h4>
+  <form [formGroup]="loginForm" class="form mt-4" (submit)="login()">
+    <div class="form-group">
+      <app-message
+        *ngIf="loginForm.get('userName').errors?.required"
+        message="Username is required!"
+      ></app-message>
+      <app-message
+        *ngIf="loginForm.get('userName').errors?.maxlength"
+        message="Username length must be smaller than 30!"
+      ></app-message>
+
+      <input
+        #userNameInput
+        formControlName="userName"
+        class="form-control"
+        placeholder="username"
+        autofocus
+      />
+    </div>
+
+    <div class="form-group">
+      <app-message
+        *ngIf="loginForm.get('password').errors?.required"
+        message="Password is required!"
+      >
+      </app-message>
+      <input
+        formControlName="password"
+        type="password"
+        class="form-control"
+        placeholder="password"
+      />
+    </div>
+
+    <button
+      [disabled]="loginForm.invalid"
+      type="submit"
+      class="btn btn-primary btn-block"
+    >
+      login
+    </button>
+  </form>
+  <p class="text-muted mt-3">
+    Not a user?<a [routerLink]="['signup']">
+      Register now
+    </a>
+  </p>
+</app-card>

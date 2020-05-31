@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { PhotosModule } from './photos/photos.module';
 import { CardModule } from './shared/components/card/card.module';
 import { CoreModule } from './core/core.module';
+import { ImmediateClickDirective } from './shared/directives/immediate-click/immediate-click.directive';
 
 /** Components */
 

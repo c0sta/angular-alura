@@ -4,10 +4,10 @@
   <li *ngFor="let cols of rows" class="row">
     <div *ngFor="let photo of cols" class="col-4" appDarkenOnHover>
       <app-card [title]="photo.description" class="m-2">
-        <ap-photo
+        <app-photo
           [url]="photo.url"
           [description]="photo.description"
-        ></ap-photo>
+        ></app-photo>
         <div class="text-center p-2">
           <i class="fa fa-heart-o fa-1x mr-2">
             {{ photo.likes }}
